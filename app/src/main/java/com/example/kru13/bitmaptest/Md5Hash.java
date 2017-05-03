@@ -14,13 +14,10 @@ public class Md5Hash {
     private int i[];
     private int len;
     private static final char START = 65;
-    private static final char END = 126;
+    private static final char END = 90;
     private static final char characters[] = {
             'A', 'B','C','D','E','F','G','H','I','J','K','L','M',
-            'N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
-            'a', 'b','c','d','e','f','g','h','i','j','k','l','m',
-            'n','o','p','q','r','s','t','u','v','w','x','y','z',
-            '0','1','2','3','4','5','6','7','8','9',
+            'N','O','P','Q','R','S','T','U','V','W','X','Y','Z'
     };
 
     Md5Hash () {
@@ -36,16 +33,15 @@ public class Md5Hash {
 
             // Create Hex String
             StringBuffer hexString = new StringBuffer();
-            for (int i=0; i<messageDigest.length; i++)
+            for (int i = 0; i < messageDigest.length; i++)
                 hexString.append(Integer.toHexString(0xFF & messageDigest[i]));
-           return hexString.toString();
+            return hexString.toString();
 
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
         return "";
     }
-
     public String generate() {
         // Generate key
         StringBuilder sb = new StringBuilder();
